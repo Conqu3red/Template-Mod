@@ -37,6 +37,7 @@ namespace TemplateMod
             modEnabled = Config.Bind("Template Mod", "modEnabled", true, "Enable Mod");
 
             modEnabled.SettingChanged += onEnableDisable;
+	    this.isEnabled = modEnabled.Value; // sync value initially
 
             harmony = new Harmony("org.bepinex.plugins.TemplateMod");
             harmony.PatchAll(Assembly.GetExecutingAssembly());
